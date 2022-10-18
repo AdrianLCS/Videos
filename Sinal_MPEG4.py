@@ -28,8 +28,6 @@ print(var)
 desvpad=var**(1/2)
 print(desvpad)
 
-#print(l)
-#print(l2)
 
 x=np.array(range(len(l)))
 

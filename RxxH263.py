@@ -17,33 +17,23 @@ for i in l:
     var = var + ((i - m) ** 2) * freq0
 desvpad = var ** (1 / 2)
 
-l2 = []
-fatNormalizacao = 0
-for i in l:
-    fatNormalizacao += i
-    if not i in l2:
-        l2.append(i)
-tamanho = len(l2)
-
 ################CORRELAÇAO DE FUNÇÃO#######################
 corr = []
 tau = []
 cont = 0
-lnormalizado = list(np.array(l)/fatNormalizacao)
-for i in range(0, 2000, 400):
+for i in range(0, 26000, 200):
     corraux = 0
-    for k in range(len(lnormalizado)):
-        for j in range(len(lnormalizado)):
-            if j + i < len(lnormalizado):
-                corraux += lnormalizado[k] * lnormalizado[j + i]
+    for j in range(len(l)):
+        if j + i < len(l):
+            corraux += l[j] * l[j + i]*freq0
     corr.append(corraux)
     tau.append(cont)
-    cont += 400
+    cont += 200
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 
-plt.title('Correlação: mr_bean_h263_64k ')
-plt.xlabel('tau')
+plt.title('Correlação Rxx: mr_bean_h263_64k ')
+plt.xlabel('lag')
 plt.ylabel('Correlação')
-plt.bar(tau, corr,width=380)
+plt.bar(tau, corr, width=110)
 plt.show()

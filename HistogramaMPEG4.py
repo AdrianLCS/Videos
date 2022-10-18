@@ -9,12 +9,6 @@ for i in vline:
         s = int(i)
         l.append(s)
 
-l2 = []
-for i in l:
-    if not i in l2:
-        l2.append(i)
-tamanho = len(l2)
-
 m=0
 var=0
 freq=1/len(l)
@@ -28,8 +22,6 @@ print(var)
 desvpad=var**(1/2)
 print(desvpad)
 
-#print(l)
-#print(l2)
 def gausiana(x):
     return (1/(((np.pi*2)**(1/2))*1790.9000112647193))*np.e**((-(x-2911.7464432891047)**2)/(2*3207322.8503479715))
 
