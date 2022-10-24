@@ -1,19 +1,17 @@
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 
-with open('mr_bean_h263_64k.txt') as arquivo:
-    vline = arquivo.readlines()
-
-l = []
-for i in vline:
-    l.append(int(i))
+r = []
+for i in range(1000):
+    r.append(int(random.gauss(0, 2)))
 
 m = 0
 var = 0
-freq0 = 1 / len(l)
-for i in l:
+freq0 = 1 / len(r)
+for i in r:
     m = m + i * freq0
-for i in l:
+for i in r:
     var = var + ((i - m) ** 2) * freq0
 desvpad = var ** (1 / 2)
 
@@ -21,19 +19,19 @@ desvpad = var ** (1 / 2)
 corr = []
 tau = []
 cont = 0
-for i in range(0, 26000, 200):
+for i in range(0, 1000, 10):
     corraux = 0
-    for j in range(len(l)):
-        if j + i < len(l):
-            corraux += l[j] * l[j + i]*freq0
+    for j in range(len(r)):
+        if j + i < len(r):
+            corraux += (r[j]-m) * (r[j + i]-m)*freq0/var
     corr.append(corraux)
     tau.append(cont)
-    cont += 200
+    cont += 10
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 
-plt.title('Correlação Rxx: mr_bean_h263_64k ')
+plt.title('Coeficiente de Correlação Pxx: Ruido')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
-plt.bar(tau, corr, width=170)
+plt.bar(tau, corr, width=9)
 plt.show()
