@@ -28,7 +28,9 @@ for i in lh:
 desvpadh = varh ** (1 / 2)
 for i in lh:
     VMQh = VMQh + i**2 * freq0
+print(mh)
 print(varh)
+print(VMQh)
 
 lm = lm[:len(lh)]
 mm = 0
@@ -41,7 +43,9 @@ for i in lm:
 desvpadm = varm ** (1 / 2)
 for i in lh:
     VMQm = VMQm + i**2 * freq0
+print(mm)
 print(varm)
+print(VMQm)
 
 covariancia = 0
 for j in range(len(lh)):
@@ -52,8 +56,9 @@ print(covariancia)
 VetorMed = np.array([mh, mm])
 MatrizVar = np.array([[varh, covariancia], [covariancia, varm]])
 print(MatrizVar)
-AutoValoreAutoVetor =np.linalg.eig(MatrizVar)
-MatrizVarDiagonal=np.array([[AutoValoreAutoVetor[0][0], 0], [0, AutoValoreAutoVetor[0][1]]])
+AutoValoreAutoVetor = np.linalg.eig(MatrizVar)
+print(AutoValoreAutoVetor) #array de autovalor e matriz com os autovetores
+MatrizVarDiagonal = np.array([[AutoValoreAutoVetor[0][0], 0], [0, AutoValoreAutoVetor[0][1]]])
 print(MatrizVarDiagonal)
 ################CORRELAÇAO DE FUNÇÃO#######################
 cov = []
