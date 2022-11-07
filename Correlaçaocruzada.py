@@ -21,8 +21,8 @@ freq0 = 1 / len(lh)
 mh = 0
 varh = 0
 VMQh = 0
-for i in lh:
-    mh = mh + i * freq0
+for i in range(10000):
+    mh = mh + lh[i+6000] * (1/10000)
 for i in lh:
     varh = varh + ((i - mh) ** 2) * freq0
 desvpadh = varh ** (1 / 2)

@@ -1,13 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import numpy.fft
 
-with open('mr_bean_mpeg4_hq.txt') as arquivo:
+with open('mr_bean_h263_64k.txt') as arquivo:
     vline = arquivo.readlines()
+
 l = []
 for i in vline:
-    if not i == '\n':
-        s = int(i)
-        l.append(s)
+    l.append(int(i))
 
 m = 0
 var = 0
@@ -18,12 +18,11 @@ for i in l:
     var = var + ((i - m) ** 2) * freq0
 desvpad = var ** (1 / 2)
 
-
 ################CORRELAÇAO DE FUNÇÃO#######################
 corr = []
 tau = []
 cont = 0
-for i in range(0, 400, 1):
+for i in range(0, 4000, 1):
     corraux = 0
     for j in range(len(l)):
         if j + i < len(l):
@@ -31,12 +30,16 @@ for i in range(0, 400, 1):
     corr.append(corraux)
     tau.append(cont)
     cont += 1
+corr=np.array(corr)
+fft=abs(np.fft.fftn(corr))
 ################CORRELAÇAO DE FUNÇÃO#######################
 
-
-plt.title('Correlação Rxx: mr_bean_mpeg4_hq.txt')
+x=range(len(fft))
+x=np.array(x)
+x=x*40/4000
+plt.title('Correlação Rxx: mr_bean_h263_64k ')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
-#plt.bar(tau, corr, width= 800)
-plt.plot(tau, corr)
+#plt.bar(tau, corr, width=0.9)
+plt.plot(x, fft)
 plt.show()

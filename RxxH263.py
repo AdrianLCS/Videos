@@ -21,19 +21,20 @@ desvpad = var ** (1 / 2)
 corr = []
 tau = []
 cont = 0
-for i in range(0, 26000, 200):
+for i in range(0, 400, 1):
     corraux = 0
     for j in range(len(l)):
         if j + i < len(l):
             corraux += l[j] * l[j + i]*freq0
     corr.append(corraux)
     tau.append(cont)
-    cont += 200
+    cont += 1
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 
 plt.title('Correlação Rxx: mr_bean_h263_64k ')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
-plt.bar(tau, corr, width=170)
+#plt.bar(tau, corr, width=0.9)
+plt.plot(tau, corr)
 plt.show()

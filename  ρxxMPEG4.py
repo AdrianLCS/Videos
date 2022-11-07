@@ -22,14 +22,14 @@ desvpad = var ** (1 / 2)
 cov = []
 tau = []
 cont = 0
-for i in range(0,40000, 50):
+for i in range(0,400, 1):
     covaux = 0
     for j in range(len(l)):
         if j + i < len(l):
             covaux += (l[j]-m) * (l[j + i]-m)*freq0/var
     cov.append(covaux)
     tau.append(cont)
-    cont += 50
+    cont += 1
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 

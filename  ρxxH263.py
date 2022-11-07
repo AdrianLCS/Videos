@@ -22,19 +22,20 @@ desvpad = var ** (1 / 2)
 cov = []
 tau = []
 cont = 0
-for i in range(0, 6000, 40):
+for i in range(0, 200, 1):
     covaux = 0
     for j in range(len(l)):
         if j + i < len(l):
             covaux += (l[j]-m) * (l[j + i]-m)*freq0/var
     cov.append(covaux)
     tau.append(cont)
-    cont += 40
+    cont += 1
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 
 plt.title('Coeficiente de Correlação  ρxx: mr_bean_h263_64k ')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
-plt.bar(tau, cov, width=30)
+#plt.bar(tau, cov, width=30)
+plt.plot(tau, cov)
 plt.show()

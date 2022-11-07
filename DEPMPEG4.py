@@ -23,7 +23,7 @@ desvpad = var ** (1 / 2)
 corr = []
 tau = []
 cont = 0
-for i in range(0, 400, 1):
+for i in range(0, 4000, 1):
     corraux = 0
     for j in range(len(l)):
         if j + i < len(l):
@@ -33,10 +33,14 @@ for i in range(0, 400, 1):
     cont += 1
 ################CORRELAÇAO DE FUNÇÃO#######################
 
-
+fft=abs(np.fft.rfft(corr))
+x=range(len(fft))
+x=np.array(x)
+x=x*40/4000
 plt.title('Correlação Rxx: mr_bean_mpeg4_hq.txt')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
 #plt.bar(tau, corr, width= 800)
-plt.plot(tau, corr)
+#plt.plot(tau, corr)
+plt.plot(x, fft)
 plt.show()
