@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy.fft
+import pylab
 
 with open('mr_bean_h263_64k.txt') as arquivo:
     vline = arquivo.readlines()
@@ -22,7 +23,7 @@ desvpad = var ** (1 / 2)
 corr = []
 tau = []
 cont = 0
-for i in range(0, 4000, 1):
+for i in range(0, 2000, 1):
     corraux = 0
     for j in range(len(l)):
         if j + i < len(l):
@@ -36,11 +37,17 @@ fft=abs(np.fft.rfft(corr))
 
 x = range(len(fft))
 x = np.array(x)
-x = x*40/4000
+x = x*40/2000
 plt.title('DEP mr_bean_h263_64k ')
 plt.xlabel('Freqência')
 plt.ylabel('Potência')
 #plt.bar(tau, corr, width=0.9)
-plt.plot(x, fft,lw=2)
-plt.show()
-x.set_yscale('log')
+fig = plt.figure()
+ax = fig.add_subplot(2, 1, 1)
+plt.plot(x, fft, lw=2)
+
+ax.set_xscale('log')
+pylab.xlabel('Freqência')
+pylab.title('DEP mr_bean_h263_64k ')
+pylab.xlabel('Freqência')
+pylab.show()

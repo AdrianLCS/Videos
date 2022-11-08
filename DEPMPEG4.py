@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pylab
 
 with open('mr_bean_mpeg4_hq.txt') as arquivo:
     vline = arquivo.readlines()
@@ -23,7 +24,7 @@ desvpad = var ** (1 / 2)
 corr = []
 tau = []
 cont = 0
-for i in range(0, 8000, 1):
+for i in range(0, 2000, 1):
     corraux = 0
     for j in range(len(l)):
         if j + i < len(l):
@@ -36,12 +37,17 @@ for i in range(0, 8000, 1):
 fft=abs(np.fft.rfft(corr))
 x=range(len(fft))
 x=np.array(x)
-x=x*40/8000
+x=x*40/2000
 plt.title('DEP mr_bean_mpeg4_hq')
 plt.xlabel('Freqência')
 plt.ylabel('Potência')
 #plt.bar(tau, corr, width= 800)
 #plt.plot(tau, corr)
+fig = plt.figure()
+ax = fig.add_subplot(2, 1, 1)
 plt.plot(x, fft, lw=2)
-plt.show()
-x.set_yscale('log')
+pylab.title('DEP mr_bean_mpeg4_hq')
+pylab.xlabel('Freqência')
+pylab.ylabel('Potência')
+ax.set_yscale('log')
+pylab.show()
