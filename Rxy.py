@@ -42,18 +42,19 @@ desvpadm = varm ** (1 / 2)
 cov = []
 tau = []
 cont = 0
-for i in range(0, 25000, 200):
+for i in range(0, 400, 1):
     covaux = 0
     for j in range(len(lh)):
         if j + i < len(lh):
             covaux += (lm[j]) * (lh[j + i])*freq0
     cov.append(covaux)
     tau.append(cont)
-    cont += 200
+    cont += 1
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 plt.title('Correlação cruzada  Rxy: mr_bean mpeg4 e h263 ')
 plt.xlabel('lag')
 plt.ylabel('Correlação')
-plt.bar(tau, cov, width=170)
+#plt.bar(tau, cov, width=170)
+plt.plot(tau, cov)
 plt.show()

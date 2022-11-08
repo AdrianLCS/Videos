@@ -32,14 +32,14 @@ def gausiana(x):
 
 x=np.array(range(-2000,15000,2000))
 #plt.subplot(2, 1, 2)
-plt.title('Histograma: mr_bean_mpeg4_hq')
+#plt.title('Histograma: mr_bean_mpeg4_hq')
 plt.xlabel('valor')
 plt.ylabel('Frequência')
 
-plt.hist(l, len(l2), rwidth=0.95,weights=np.ones_like(l)/len(l))
-plt.xticks(x)
+#plt.hist(l, len(l2), rwidth=0.95,weights=np.ones_like(l)/len(l))
+#plt.xticks(x)
 t=np.array(range(-2000,15000,10))
 f=gausiana(t)
-
-plt.plot(t,f,'r')
+plt.specgram(l, Fs=40)
+#plt.plot(t,f,'r')
 plt.show()
