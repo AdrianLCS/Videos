@@ -80,32 +80,18 @@ x=np.array(range(-100,10000,20))
 
 
 
-def specgram2d(y, srate=44100, ax=None, title=None):
-  if not ax:
-    ax = plt.axes()
-    ax.set_title(title, loc='center', wrap=True)
-    spec, freqs, t, im = ax.specgram(y, Fs=fs, scale='dB', vmax=0)
-    ax.set_xlabel('time (s)')
-    ax.set_ylabel('frequencies (Hz)')
-    cbar = plt.colorbar(im, ax=ax)
-    cbar.set_label('Amplitude (dB)')
-    cbar.minorticks_on()
-    return spec, freqs, t, im
 
-fig1, ax1 = plt.subplots()
-specgram2d(l, srate=40, ax=ax1)
-plt.show()
 
 #plt.title('Histograma: mr_bean_h263_64k')
-#plt.xlabel('valor')
-#plt.ylabel('Frequência')
+plt.xlabel('valor')
+plt.ylabel('Frequência')
 
 #plt.hist(l,len(l2), rwidth=0.98, weights=np.ones_like(l) / len(l))
 #plt.hist(g, 25)
-#plt.specgram(l, Fs=40, )
+plt.specgram(l, Fs=40, )
 f=gausiana1(x)
 f2=gausiana2(x)
 #plt.plot(x,f,'r')
 #plt.plot(x,f2,'g')
 
-#plt.show()
+plt.show()
