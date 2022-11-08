@@ -27,7 +27,7 @@ desvpad=var**(1/2)
 print(desvpad)
 
 def gausiana(x):
-    return (1/(((np.pi*2)**(1/2))*1790.9000112647193))*np.e**((-(x-2911.7464432891047)**2)/(2*3207322.8503479715))
+    return (1/(((np.pi*2)**(1/2))*desvpad))*np.e**((-(x-m)**2)/(2*var))
 
 
 x=np.array(range(-2000,15000,2000))
