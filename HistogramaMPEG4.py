@@ -8,6 +8,10 @@ for i in vline:
     if not i == '\n':
         s = int(i)
         l.append(s)
+l2=[]
+for i in l:
+    if not(i in l2):
+        l2.append(i)
 
 m=0
 var=0
@@ -28,13 +32,14 @@ def gausiana(x):
 
 x=np.array(range(-2000,15000,2000))
 #plt.subplot(2, 1, 2)
-plt.title('Histograma: mr_bean_mpeg4_hq \n Média: 2911.7464432891047 \n Variância: 3207322.8503479715 \n Desvio padrão: 1790.9000112647193')
+plt.title('Histograma: mr_bean_mpeg4_hq')
 plt.xlabel('valor')
-plt.ylabel('Frequência relativa')
-plt.hist(l, 100,rwidth=0.95,weights=np.ones_like(l)/len(l))
+plt.ylabel('Frequência')
+
+plt.hist(l, len(l2), rwidth=0.95,weights=np.ones_like(l)/len(l))
 plt.xticks(x)
 t=np.array(range(-2000,15000,10))
 f=gausiana(t)
 
-#plt.plot(t,f,'r')
+plt.plot(t,f,'r')
 plt.show()

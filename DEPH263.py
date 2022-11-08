@@ -34,7 +34,7 @@ for i in range(0, 2000, 1):
 corr=np.array(corr)
 fft=abs(np.fft.rfft(corr))
 ################CORRELAÇAO DE FUNÇÃO#######################
-
+fft=20*np.log10(fft)
 x = range(len(fft))
 x = np.array(x)
 x = x*40/2000
@@ -43,7 +43,7 @@ plt.xlabel('Freqência')
 plt.ylabel('Potência')
 #plt.bar(tau, corr, width=0.9)
 fig = plt.figure()
-ax = fig.add_subplot(2, 1, 1)
+ax = fig.add_subplot(1, 1, 1)
 plt.plot(x, fft, lw=2)
 
 ax.set_xscale('log')

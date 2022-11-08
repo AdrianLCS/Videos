@@ -35,6 +35,8 @@ for i in range(0, 2000, 1):
 ################CORRELAÇAO DE FUNÇÃO#######################
 
 fft=abs(np.fft.rfft(corr))
+fft=20*np.log10(fft)
+
 x=range(len(fft))
 x=np.array(x)
 x=x*40/2000
@@ -44,7 +46,7 @@ plt.ylabel('Potência')
 #plt.bar(tau, corr, width= 800)
 #plt.plot(tau, corr)
 fig = plt.figure()
-ax = fig.add_subplot(2, 1, 1)
+ax = fig.add_subplot(1, 1, 1)
 plt.plot(x, fft, lw=2)
 pylab.title('DEP mr_bean_mpeg4_hq')
 pylab.xlabel('Freqência')
