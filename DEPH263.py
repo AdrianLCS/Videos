@@ -31,15 +31,16 @@ for i in range(0, 4000, 1):
     tau.append(cont)
     cont += 1
 corr=np.array(corr)
-fft=abs(np.fft.fftn(corr))
+fft=abs(np.fft.rfft(corr))
 ################CORRELAÇAO DE FUNÇÃO#######################
 
-x=range(len(fft))
-x=np.array(x)
-x=x*40/4000
-plt.title('Correlação Rxx: mr_bean_h263_64k ')
-plt.xlabel('lag')
-plt.ylabel('Correlação')
+x = range(len(fft))
+x = np.array(x)
+x = x*40/4000
+plt.title('DEP mr_bean_h263_64k ')
+plt.xlabel('Freqência')
+plt.ylabel('Potência')
 #plt.bar(tau, corr, width=0.9)
-plt.plot(x, fft)
+plt.plot(x, fft,lw=2)
 plt.show()
+x.set_yscale('log')
