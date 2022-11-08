@@ -80,16 +80,16 @@ x=np.array(range(-100,10000,20))
 
 
 
-plt.title('Histograma: mr_bean_h263_64k')
+#plt.title('Histograma: mr_bean_h263_64k')
 plt.xlabel('valor')
 plt.ylabel('Frequência')
 
-plt.hist(l,len(l2), rwidth=0.98, weights=np.ones_like(l) / len(l))
+#plt.hist(l,len(l2), rwidth=0.98, weights=np.ones_like(l) / len(l))
 #plt.hist(g, 25)
-#plt.specgram(l, Fs=40)
+plt.specgram(l, Fs=40)
 f=gausiana1(x)
 f2=gausiana2(x)
-plt.plot(x,f,'r')
-plt.plot(x,f2,'g')
+#plt.plot(x,f,'r')
+#plt.plot(x,f2,'g')
 
 plt.show()
